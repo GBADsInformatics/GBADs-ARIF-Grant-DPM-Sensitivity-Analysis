@@ -1,0 +1,338 @@
+##### cattle_trial_past_ideal #####
+
+
+species: cattle
+nruns: 10000
+seed_value: NULL
+
+
+# for now ideal scenarios are just made up
+
+Num_timesteps: 12
+
+timestep_Nof_days: 30
+
+# Initial population
+
+N_JF_t0: rpert(10000,0,3,1)
+
+N_JM_t0: rpert(10000,0,2,1)
+
+N_SubAF_t0: rpert(10000, 0,2,1)
+
+N_SubAM_t0: rpert(10000, 0,1,0)
+
+N_AF_t0: rpert(10000, 1,6,3)
+
+N_AM_t0: rpert(10000, 0,2,1)
+
+N_Ox_t0: 0
+
+## Growth rate N -> J and J-> A
+
+Beta_JF: 12
+
+Beta_JM: 12
+
+Beta_SubAF: 24
+
+Beta_SubAM: 24
+
+Beta_AF: 108
+
+Beta_AM: 60
+
+Beta_Ox: 60
+
+# Fertility
+
+part: rpert(10000,0.92,0.92,0.92)
+
+prolif: rpert(10000, 1, 2, 1.0001)
+
+# lactation
+
+prop_F_milked: 1
+
+lac_duration: rpert(10000, 75, 540, 330)
+
+avg_daily_yield_ltr: rpert(10000, 1, 8, 2.19)
+
+milk_value_ltr: rpert(10000,31,31,31)
+
+# draught power
+
+castration_proportion: 0
+
+draught_rate: 0
+
+draught_day_value: 0
+
+# Offtake
+
+## Currently fixed, but, should this be dependant on new pop size, to keep pop size as it was at t0
+
+## offtake must = offtake + dif between NNFt0 etc and NJF current
+
+Gamma_JF: 0
+
+Gamma_JM: 0
+
+Gamma_SubAF: 2.5000000000000001E-2
+
+Gamma_SubAM: 0.02
+
+Gamma_AF: 4.8000000000000001E-2
+
+Gamma_AM: 0.27
+
+Gamma_Ox: 0
+
+# Mortality ## informed from META analysis
+
+Alpha_JF: 0
+
+Alpha_JM: 0
+
+Alpha_SubAF: 0
+
+Alpha_SubAM: 0
+
+Alpha_AF: 0
+
+Alpha_AM: 0
+
+Alpha_Ox: 0
+
+# Culls
+
+CullF: 144
+
+CullM: 24
+
+CullOx: 144
+
+## Production parameters (kg)
+
+# Liveweight conversion (kg) ## Informed from META analysis
+
+lwJF: rpert(10000, 23, 160, 120)
+
+lwJM: rpert(10000, 24, 170, 130)
+
+lwSubAF: rpert(10000, 100, 300, 220)
+
+lwSubAM: rpert(10000, 110, 320, 240)
+
+lwAF: rpert(10000, 140, 350, 310)
+
+lwAM: rpert(10000, 150, 500, 400)
+
+lwOx: 0
+
+# carcase yeild
+
+ccy: rpert(10000,0.5,0.5,0.5)
+
+## Financial value of live animals
+
+# Ethiopian Birr
+
+fvJF: rpert(10000, (6000+(0.2*6000)), (12000+(0.2*12000)), (7757+(0.2*7757)))
+
+fvJM: rpert(10000, (6350+635), (14500+1450), (9912+991))
+
+fvSubAF: rpert(10000, (5000+(0.3*5000)), (15575+(0.3*15575)), (12109+(0.3*12109)))
+
+fvSubAM: rpert(10000, 4500, 26750, 18612)
+
+fvAF: rpert(10000,  (9000+900), (22166+2217), (15819+1582))
+
+fvAM: rpert(10000, ( 15975+(0.2* 15975)), (40500+(0.2*40500)), (29699+(0.2*29699)))
+
+fvOx: 0
+
+## skin/hides
+
+## parameters can be updated through expert opinion but adding options for flexibility here
+
+hides_rate: 1
+
+hides_rate_mor: rpert(10000,0.5,0.5,0.5)
+
+# 1 usd per piece = 51 eth birr
+
+hides_value: rpert(10000, (2.19*12.5), (9*12.5), (5.4*12.5))
+
+# manure rate (kg produced/animal/day)
+
+Man_J: rpert(10000, 0.5, 0.8, 0.65)
+
+Man_SubA: rpert(10000, 0.8,  1.5, 1.15)
+
+Man_A: rpert(10000,  1.5,2.3, 1.9)
+
+# 0.0125 USD / kg = 0.65 eth birr per kg 2021 price
+
+Man_value: rpert(10000,0.5,0.5,0.5)
+
+## dry matter requirements as proportion of liveweight - this value is from Chakeredza et al 2008
+
+DM_req_prpn_JF: 2.5000000000000001E-2
+
+DM_req_prpn_JM: 2.5000000000000001E-2
+
+DM_req_prpn_SubAF: 2.5000000000000001E-2
+
+DM_req_prpn_SubAM: 2.5000000000000001E-2
+
+DM_req_prpn_AF: 2.5000000000000001E-2
+
+DM_req_prpn_AM: 2.5000000000000001E-2
+
+DM_req_prpn_Ox: 2.5000000000000001E-2
+
+milk_DM_req_perKG: 0.1
+
+## Methane production based on dry matter consumption
+
+Methane_per_kgDMI_JF: rnorm(1000, 0.0207, 0.00028)
+
+Methane_per_kgDMI_JM: rnorm(1000, 0.0207, 0.00028)
+
+Methane_per_kgDMI_SubAF: rnorm(1000, 0.0207, 0.00028)
+
+Methane_per_kgDMI_SubAM: rnorm(1000, 0.0207, 0.00028)
+
+Methane_per_kgDMI_AF: rnorm(1000, 0.0207, 0.00028)
+
+Methane_per_kgDMI_AM: rnorm(1000, 0.0207, 0.00028)
+
+Methane_per_kgDMI_Ox: rnorm(1000, 0.0207, 0.00028)
+
+## Metabolisable Energy requirements
+
+MEreqPerKG_JF: 0.48699999999999999
+
+MEreqPerKG_JM: 0.48699999999999999
+
+MEreqPerKG_SubAF: 0.48699999999999999
+
+MEreqPerKG_SubAM: 0.48699999999999999
+
+MEreqPerKG_AF: 0.48699999999999999
+
+MEreqPerKG_AM: 0.48699999999999999
+
+MEreqPerKG_Ox: 0.48699999999999999
+
+## Additional ME required for milk production
+
+milk_MEreqPerKG: 4.5999999999999996
+
+## Proportion of livestock keepers that give supplemenatry feed to grazing
+
+## NOTE Currently the same for all age*sex groups
+
+prpn_lskeepers_purch_feed: 0.01
+
+## For those spending any money on feed, the proportion of feed that is purchased
+
+## NOTE Currently the same for all age*sex groups
+
+prpn_feed_paid_for: 0.5
+
+## Input parameters ## just example distributions for now
+
+Feed_cost_kg: rpert(10000, 2.5, 6.5, 3.46)
+
+## variable results for the amount of dry matter in wheat and barley and tef in Ethiopia
+
+## range 30-90%
+
+## taking 70% as an estimate for this trial
+
+DM_in_feed: rpert(10000, 0.85, 0.95, 0.9)
+
+## Labour cost
+
+## birr/head/month
+
+## example code to change labour cost to selecting from distribution
+
+Labour_cost_head_JF: rpert(10000, (1405), (1405), (1405))
+
+Labour_cost_head_JM: rpert(10000, (1405), (1405), (1405))
+
+Labour_cost_head_SubAF: rpert(10000, (1405), (1405), (1405))
+
+Labour_cost_head_SubAM: rpert(10000, (1405), (1405), (1405))
+
+Labour_cost_head_AF: rpert(10000, (1405), (1405), (1405))
+
+Labour_cost_head_AM: rpert(10000, (1405), (1405), (1405))
+
+lab_non_health: 0.85
+
+Labour_cost_head_Oxen: 0
+
+Labour_cost_head_dairy: 0
+
+## Helath care costs
+
+## birr/head/month
+
+## this includes medicines and veterinary care
+
+## and changing health care costs to select from distribution
+
+Health_exp_prev_JF: 0
+
+Health_exp_prev_JM: 0
+
+Health_exp_prev_SubAF: 0
+
+Health_exp_prev_SubAM: 0
+
+Health_exp_prev_AF: 0
+
+Health_exp_prev_AM: 0
+
+Health_exp_prev_Ox: 0
+
+Health_exp_treatment_JF: 0
+
+Health_exp_treatment_JM: 0
+
+Health_exp_treatment_SubAF: 0
+
+Health_exp_treatment_SubAM: 0
+
+Health_exp_treatment_AF: 0
+
+Health_exp_treatment_AM: 0
+
+Health_exp_treatment_Ox: 0
+
+## healh expense total
+
+## Capital costs
+
+## for this we are using bank of Ethiopia inflation rate
+
+Interest_rate: 0
+
+Infrastructure_per_head_JF: 0
+
+Infrastructure_per_head_JM: 0
+
+Infrastructure_per_head_SubAF: 0
+
+Infrastructure_per_head_SubAM: 0
+
+Infrastructure_per_head_AF: 0
+
+Infrastructure_per_head_AM: 0
+
+Infrastructure_per_head_Ox: 0
+
