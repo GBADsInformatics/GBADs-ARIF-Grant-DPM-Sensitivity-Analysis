@@ -2,7 +2,7 @@
 
 This repository will house data/code/documentation for the DPM sensitivity analysis.
 
-# DPM Parameter Sensitivity Analysis.R script
+## DPM Parameter Sensitivity Analysis.R script
 
 Change one parameter at a time (OAT) while keeping all others unchanged
 Assumes that a given parameter is independent of all others (not realistic in practice)
