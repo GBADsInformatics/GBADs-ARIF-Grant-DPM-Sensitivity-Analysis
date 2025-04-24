@@ -4,9 +4,10 @@
 # Assumes that a given parameter is independent of all others (not realistic 
 # in practice)
 
-# Creates YAML input files with varied DPM parameter values
+# Creates YAML input files with varied DPM parameter values for a given initial 
+# YAML file
 
-# Files will be named as 'param_name_increment.yaml', where 'param_name' is 
+# Files will be named as 'param_name_increment_value.yaml', where 'param_name' is 
 # the parameter name as written verbatim in the YAML file, and 'increment' 
 # is the value of the parameter
 
@@ -20,32 +21,35 @@ library(rstudioapi)
 file_path <- selectDirectory() # navigate to directory
 base_yaml_path <- file.choose() # select file to modify
 
-yaml_data <- yaml.load_file(base_yaml_path)
+yaml_data <- yaml.load_file(base_yaml_path) # load YAML file
 
 param_steps <- list(
   # Parturition and prolificacy (litter size)
-  part = seq(from = 0, to = 1.1, by = 0.1),
-  prolif = seq(from = 0, to = 2, by = 0.1),
+  # part = seq(from = 0, to = 1.1, by = 0.1),
+  # prolif = seq(from = 0, to = 2, by = 0.1),
   
   # Mortality
-  Alpha_JF = seq(from = 0, to = 1, by = 0.1),
-  Alpha_JM = seq(from = 0, to = 1, by = 0.1),
-  Alpha_SubAF = seq(from = 0, to = 1, by = 0.1),
-  Alpha_SubAM = seq(from = 0, to = 1, by = 0.1),
-  Alpha_AF = seq(from = 0, to = 1, by = 0.1),
-  Alpha_AM = seq(from = 0, to = 1, by = 0.1),
-  Alpha_Ox = seq(from = 0, to = 1, by = 0.1),
+  
+  # Must change one at a time since this parameter is age/sex dependent
+  
+  Alpha_JF = seq(from = 0, to = 1, by = 0.1)
+  # Alpha_JM = seq(from = 0, to = 1, by = 0.1)
+  # Alpha_SubAF = seq(from = 0, to = 1, by = 0.1)
+  # Alpha_SubAM = seq(from = 0, to = 1, by = 0.1)
+  # Alpha_AF = seq(from = 0, to = 1, by = 0.1)
+  # Alpha_AM = seq(from = 0, to = 1, by = 0.1)
+  # Alpha_Ox = seq(from = 0, to = 1, by = 0.1)
   
   # Feed
-  prpn_lskeepers_purch_feed = seq(from = 0, to = 1, by = 0.1),
-  prpn_feed_paid_for = seq(from = 0, to = 1, by = 0.1),
+  # prpn_lskeepers_purch_feed = seq(from = 0, to = 1, by = 0.1),
+  # prpn_feed_paid_for = seq(from = 0, to = 1, by = 0.1),
   
   # Labour
-  lab_non_health = seq(from = 0, to = 1, by = 0.1),
+  # lab_non_health = seq(from = 0, to = 1, by = 0.1)
   
   # add more parameters as needed 
   
-  # Milk Yield
+  # Milk yield
   # Lactation duration
   # Liveweight
   # Financial value
@@ -53,6 +57,8 @@ param_steps <- list(
   
 )
 
+# iterate through parameters in YAML file and change their values keeping all
+# others unchanged
 for (param in names(param_steps)) {
   steps <- param_steps[[param]]
   
