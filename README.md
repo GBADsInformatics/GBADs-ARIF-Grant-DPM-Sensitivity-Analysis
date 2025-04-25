@@ -2,6 +2,8 @@
 
 This repository will house data/code/documentation for the DPM sensitivity analysis.
 
+Can be used with either version 4 or version 7.2 of the Dynamic Population Model (DPM)
+
 ## DPM Parameter Sensitivity Analysis.R script
 
 Folder and file generation for DPM parameter sensitivity analysis
