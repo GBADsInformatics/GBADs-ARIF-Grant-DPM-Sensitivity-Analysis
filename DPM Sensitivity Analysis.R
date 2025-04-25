@@ -1,4 +1,4 @@
-# DPM Parameter Sensitivity Analysis
+# Folder and file generation for DPM parameter sensitivity analysis
 
 # Change one parameter at a time (OAT) while keeping all others unchanged
 # Assumes that a given parameter is independent of all others (not realistic 
@@ -7,9 +7,10 @@
 # Creates YAML input files with varied DPM parameter values for a given initial 
 # YAML file
 
-# Files will be named as 'param_name_increment_value.yaml', where 'param_name' is 
-# the parameter name as written verbatim in the YAML file, and 'increment' 
-# is the value of the parameter
+# Files will be named as 'param_name_increment_value.yaml', where 'param_name' 
+# is the parameter name as written verbatim in the YAML file, and 'increment' 
+# is the value of the parameter. They will then be automatically stored in 
+# subfolders with the name of the parameter
 
 
 # install.packages("yaml") 
@@ -25,27 +26,28 @@ yaml_data <- yaml.load_file(base_yaml_path) # load YAML file
 
 param_steps <- list(
   # Parturition and prolificacy (litter size)
-  # part = seq(from = 0, to = 1.1, by = 0.1),
-  # prolif = seq(from = 0, to = 2, by = 0.1),
+  part = seq(from = 0, to = 1.1, by = 0.1),
+  prolif = seq(from = 0, to = 2, by = 0.1),
   
   # Mortality
   
-  # Must change one at a time since this parameter is age/sex dependent
+  # If a parameter is partitioned by age/sex, they must be changed one at a 
+  # time 
   
-  Alpha_JF = seq(from = 0, to = 1, by = 0.1)
+  # Alpha_JF = seq(from = 0, to = 1, by = 0.1)
   # Alpha_JM = seq(from = 0, to = 1, by = 0.1)
   # Alpha_SubAF = seq(from = 0, to = 1, by = 0.1)
   # Alpha_SubAM = seq(from = 0, to = 1, by = 0.1)
   # Alpha_AF = seq(from = 0, to = 1, by = 0.1)
   # Alpha_AM = seq(from = 0, to = 1, by = 0.1)
-  # Alpha_Ox = seq(from = 0, to = 1, by = 0.1)
+  Alpha_Ox = seq(from = 0, to = 1, by = 0.1),
   
   # Feed
-  # prpn_lskeepers_purch_feed = seq(from = 0, to = 1, by = 0.1),
-  # prpn_feed_paid_for = seq(from = 0, to = 1, by = 0.1),
+  prpn_lskeepers_purch_feed = seq(from = 0, to = 1, by = 0.1),
+  prpn_feed_paid_for = seq(from = 0, to = 1, by = 0.1),
   
   # Labour
-  # lab_non_health = seq(from = 0, to = 1, by = 0.1)
+  lab_non_health = seq(from = 0, to = 1, by = 0.1)
   
   # add more parameters as needed 
   
@@ -57,17 +59,20 @@ param_steps <- list(
   
 )
 
-# iterate through parameters in YAML file and change their values keeping all
-# others unchanged
 for (param in names(param_steps)) {
   steps <- param_steps[[param]]
   
+  param_folder <- file.path(file_path, param)
+  if (!dir.exists(param_folder)) {
+    dir.create(param_folder)
+  }
+  
   for (val in steps) {
-    mod_yaml <- yaml_data         
-    mod_yaml[[param]] <- val      
+    mod_yaml <- yaml_data
+    mod_yaml[[param]] <- val
     
     filename <- sprintf("%s_%.1f.yaml", param, val)
-    full_path <- file.path(file_path, filename)
+    full_path <- file.path(param_folder, filename)
     
     writeLines(as.yaml(mod_yaml), full_path)
   }
