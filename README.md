@@ -1,10 +1,14 @@
 # GBADs-ARIF-Grant-DPM-Sensitivity-Analysis
 
+<img src= "https://github.com/GBADsInformatics/GBADsDPM.R/blob/main/img/GBADs.png" width="150">
+
 This repository will house data/code/documentation for the DPM sensitivity analysis.
 
-Can be used with either version 4 or version 7.2 of the Dynamic Population Model (DPM)
-
 ## DPM Parameter Sensitivity Analysis.R script
+
+### Usage
+
+Can be used with either version 4 or version 7.2 of the Dynamic Population Model (DPM)
 
 Folder and file generation for DPM parameter sensitivity analysis
 
