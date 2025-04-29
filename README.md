@@ -18,6 +18,8 @@ Assumes that a given parameter is independent of all others (not realistic in pr
 
 Creates YAML input files with varied DPM parameter values for a given initial YAML file
 
+Users will be prompted to navigate to the required folders containing the YAML files to be analyzed.
+
 Files will be named as 'param_name_increment_value.yaml', where 'param_name' is the parameter name as written verbatim in the YAML file, and 'increment' 
 is the value of the parameter. They will then be automatically stored within subfolders with the name of the parameter
 
