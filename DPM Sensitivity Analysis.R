@@ -15,26 +15,28 @@
 
 # install.packages("yaml") 
 # install.packages("rstudioapi")
+# install.packages("tools")
 
 library(yaml)
 library(rstudioapi)
+library(tools)
 
 generate_param_sensitivity_analysis_files <- function(output_dir = NULL, 
                                              base_yaml_path = NULL, 
                                              param_steps) {
   
   if (is.null(output_dir)) {
-    output_dir <- rstudioapi::selectDirectory()  
+    output_dir <- selectDirectory()  
   }
   
   if (is.null(base_yaml_path)) {
     base_yaml_path <- file.choose()  
   }
   
-  yaml_data <- yaml::yaml.load_file(base_yaml_path)
+  yaml_data <- yaml.load_file(base_yaml_path)
   
   # Extract just the base file name without the extension
-  base_name <- tools::file_path_sans_ext(basename(base_yaml_path))
+  base_name <- file_path_sans_ext(basename(base_yaml_path))
   
   for (param in names(param_steps)) {
     steps <- param_steps[[param]]
