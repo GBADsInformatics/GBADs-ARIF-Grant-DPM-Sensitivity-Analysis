@@ -35,7 +35,6 @@ generate_param_sensitivity_analysis_files <- function(output_dir = NULL,
   
   yaml_data <- yaml.load_file(base_yaml_path)
   
-  # Extract just the base file name without the extension
   base_name <- file_path_sans_ext(basename(base_yaml_path))
   
   for (param in names(param_steps)) {
@@ -50,7 +49,6 @@ generate_param_sensitivity_analysis_files <- function(output_dir = NULL,
       mod_yaml <- yaml_data
       mod_yaml[[param]] <- val
       
-      # Include base file name in the generated filename
       filename <- sprintf("%s_%s_%.1f.yaml", base_name, param, val)
       full_path <- file.path(param_folder, filename)
       
