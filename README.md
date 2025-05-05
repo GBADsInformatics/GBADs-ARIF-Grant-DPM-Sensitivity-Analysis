@@ -38,6 +38,6 @@ is the value of the parameter. They will then be automatically stored within sub
     prpn_lskeepers_purch_feed = seq(from = 0, to = 1, by = 0.1),
     prpn_feed_paid_for = seq(from = 0, to = 1, by = 0.1),
     lab_non_health = seq(from = 0, to = 1, by = 0.1)
-  )
+    )
 
-  generate_param_sensitivity_analysis_files(param_steps = param_steps)
+    generate_param_sensitivity_analysis_files(param_steps = param_steps)
