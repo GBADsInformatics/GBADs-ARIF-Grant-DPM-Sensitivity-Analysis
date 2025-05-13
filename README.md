@@ -42,4 +42,4 @@ is the value of the parameter. They will then be automatically stored within sub
 
     generate_param_sensitivity_analysis_files(param_steps = param_steps)
 
-The `from` and `to` arguments to `seq()` for each model parameter can be thought of as being minimum and maximum values, whereas the `by` argument represents an amount by which the paramter value is incremented. For model paranmters that are proportions, `from = 0` and `to = 1`. The `by` argument has been set to `by = 0.1`, can be changed to reflect a finer increment (*e.g.*, 0.01) or a coarser increment (*e.g.*, 0.5).
+The `from` and `to` arguments to `seq()` for each model parameter can be thought of as being minimum and maximum values, whereas the `by` argument represents an amount by which the parameter value is incremented. For model parameters that are proportions, `from = 0` and `to = 1`. The `by` argument has been set to `by = 0.1` by default, but can be changed to reflect a finer increment (*e.g.*, 0.01) or a coarser increment (*e.g.*, 0.5).
