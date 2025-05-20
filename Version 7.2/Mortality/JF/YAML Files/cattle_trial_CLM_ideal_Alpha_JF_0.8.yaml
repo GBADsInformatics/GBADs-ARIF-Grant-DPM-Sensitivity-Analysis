@@ -1,0 +1,126 @@
+species: cattle
+nruns: 100
+seed_value: ~
+Num_timesteps: 12
+timestep_Nof_days: 30
+N_JF_t0: rpert(10000,0,1,0)
+N_JM_t0: rpert(10000,0,1,0)
+N_SubAF_t0: rpert(10000, 0,1,0)
+N_SubAM_t0: rpert(10000, 0,1,0)
+N_AF_t0: rpert(10000,1,2,1)
+N_AM_t0: rpert(10000,0,0.22,0.11)
+N_Ox_t0: rpert(10000,0,1.78,0.89)
+Beta_JF: 12
+Beta_JM: 12
+Beta_SubAF: 24
+Beta_SubAM: 24
+Beta_AF: 108
+Beta_AM: 60
+Beta_Ox: 60
+part: rpert(10000, 0.63, 0.75, 0.69)
+prolif: rpert(10000, 1, 2, 1.0001)
+prop_F_milked: 1
+lac_duration: rpert(10000, 75, 540, 330)
+avg_daily_yield_ltr: rpert(10000, 1.45, 8, 2.19)
+milk_value_ltr: rpert(10000,31,31,31)
+castration_proportion: rpert(10000,0.9,0.9,0.9)
+draught_rate: rpert(10000,0.273,0.273,0.273)
+draught_day_value: rpert(10000,150,150,150)
+Gamma_JF: 0
+Gamma_JM: 0
+Gamma_SubAF: 0.0185
+Gamma_SubAM: 0
+Gamma_AF: 0.0706
+Gamma_AM: 0.09
+Gamma_Ox: 0.09
+Alpha_JF: 0.8
+Alpha_JM: 0
+Alpha_SubAF: 0
+Alpha_SubAM: 0
+Alpha_AF: 0
+Alpha_AM: 0
+Alpha_Ox: 0
+CullF: 144
+CullM: 144
+CullOx: 144
+lwJF: rpert(10000, 22, 150, 110)
+lwJM: rpert(10000, 23, 180, 120)
+lwSubAF: rpert(10000, 90, 300, 180)
+lwSubAM: rpert(10000, 100, 350, 190)
+lwAF: rpert(10000, 150, 350, 240)
+lwAM: rpert(10000, 170, 450, 300)
+lwOx: rpert(10000, 170, 450, 300)
+ccy: rpert(10000,0.5,0.5,0.5)
+fvJF: rpert(10000, (3680+(0.2*3680)), (11425+(0.2*11425)), (6118+(0.2*6118)))
+fvJM: rpert(10000, (3650+365), (22480+2248), (10511+1051))
+fvSubAF: rpert(10000, (4285+(0.3*4285)), (29200+(0.3*29200)), (10941+(0.3*10941)))
+fvSubAM: rpert(10000, (6000), (26750), (15591))
+fvAF: rpert(10000,  (10948+1094), (30000+3000), (15548+1554))
+fvAM: rpert(10000, (5960+(0.2*5960)), (48000+(0.2*48000)), (32995+(0.2*32995)))
+fvOx: rpert(10000, (5960+(0.2*5960)), (48000+(0.2*48000)), (32995+(0.2*32995)))
+hides_rate: 1
+hides_rate_mor: rpert(10000,0.5,0.5,0.5)
+hides_value: rpert(10000, (2.19*12.5), (9*12.5), (5.4*12.5))
+Man_J: rpert(10000, 0.5, 0.8, 0.65)
+Man_SubA: rpert(10000, 0.8,  1.5, 1.15)
+Man_A: rpert(10000,  1.5,2.3, 1.9)
+Man_value: rpert(10000,0.5,0.5,0.5)
+DM_req_prpn_JF: 0.025
+DM_req_prpn_JM: 0.025
+DM_req_prpn_SubAF: 0.025
+DM_req_prpn_SubAM: 0.025
+DM_req_prpn_AF: 0.025
+DM_req_prpn_AM: 0.025
+DM_req_prpn_Ox: 0.025
+milk_DM_req_perKG: 0.1
+Methane_per_kgDMI_JF: rnorm(1000, 0.0207, 0.00028)
+Methane_per_kgDMI_JM: rnorm(1000, 0.0207, 0.00028)
+Methane_per_kgDMI_SubAF: rnorm(1000, 0.0207, 0.00028)
+Methane_per_kgDMI_SubAM: rnorm(1000, 0.0207, 0.00028)
+Methane_per_kgDMI_AF: rnorm(1000, 0.0207, 0.00028)
+Methane_per_kgDMI_AM: rnorm(1000, 0.0207, 0.00028)
+Methane_per_kgDMI_Ox: rnorm(1000, 0.0207, 0.00028)
+MEreqPerKG_JF: 0.487
+MEreqPerKG_JM: 0.487
+MEreqPerKG_SubAF: 0.487
+MEreqPerKG_SubAM: 0.487
+MEreqPerKG_AF: 0.487
+MEreqPerKG_AM: 0.487
+MEreqPerKG_Ox: 0.487
+milk_MEreqPerKG: 4.6
+prpn_lskeepers_purch_feed: 0.3
+prpn_feed_paid_for: 0.5
+Feed_cost_kg: rpert(10000, 2.5, 6.5, 3.46)
+DM_in_feed: rpert(10000, 0.85, 0.95, 0.9)
+Labour_cost_head_JF: rpert(10000, (920), (920), (920))
+Labour_cost_head_JM: rpert(10000, (920), (920), (920))
+Labour_cost_head_SubAF: rpert(10000, (920), (920), (920))
+Labour_cost_head_SubAM: rpert(10000, (920), (920), (920))
+Labour_cost_head_AF: rpert(10000, (920), (920), (920))
+Labour_cost_head_AM: rpert(10000, (920), (920), (920))
+lab_non_health: 0.85
+Labour_cost_head_Oxen: rpert(10000,0,0,0)
+Labour_cost_head_dairy: 0
+Health_exp_prev_JF: 0
+Health_exp_prev_JM: 0
+Health_exp_prev_SubAF: 0
+Health_exp_prev_SubAM: 0
+Health_exp_prev_AF: 0
+Health_exp_prev_AM: 0
+Health_exp_prev_Ox: 0
+Health_exp_treatment_JF: 0
+Health_exp_treatment_JM: 0
+Health_exp_treatment_SubAF: 0
+Health_exp_treatment_SubAM: 0
+Health_exp_treatment_AF: 0
+Health_exp_treatment_AM: 0
+Health_exp_treatment_Ox: 0
+Interest_rate: 0
+Infrastructure_per_head_JF: 0
+Infrastructure_per_head_JM: 0
+Infrastructure_per_head_SubAF: 0
+Infrastructure_per_head_SubAM: 0
+Infrastructure_per_head_AF: 0
+Infrastructure_per_head_AM: 0
+Infrastructure_per_head_Ox: 0
+
