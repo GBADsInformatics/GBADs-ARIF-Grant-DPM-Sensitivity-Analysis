@@ -16,7 +16,7 @@ Changes one parameter at a time (OAT) while keeping all others unchanged
 
 Assumes that a given parameter is independent of all others (not realistic in practice)
 
-For parameters defined by distributions (e.g., rpert), the analysis requires these to be point estimates
+For parameters defined by distributions (*e.g.*, rpert), the analysis requires these to be point estimates
 
 Creates YAML input files with varied DPM parameter values for a given initial YAML file
 
